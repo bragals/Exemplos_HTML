@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vídeo no texto</title>
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 10em 0;
+    }
+
+    header {
+      /* font-size: 20em; */
+      font-size: 18vw;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    svg {
+      font-weight: 800;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    svg mask rect {
+      fill: rgba(255, 255, 255, 0.9);
+    }
+
+    svg>rect {
+      fill: white;
+      -webkit-mask: url(#mask);
+      mask: url(#mask);
+    }
+
+    video {
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+    }
+
+    .no-svg-header {
+      display: none;
+    }
+  </style>
+  <script>
+    var hasMask = document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Mask", "1.0");
+
+    if (!hasMask) {
+      document.querySelector('.svg-header').display = 'none';
+      document.querySelector('.no-svg-header').display = 'block';
+    }
+  </script>
+</head>
+
+<body>
+  <header class="svg-header">
+    <svg>
+      ESTEVAN MAITO
+      <mask id="mask">
+        <rect width="100%" height="100%" />
+        <text>
+          <tspan x="0" y="60%">ESTEVAN</tspan>
+          <tspan x="0" dy="0.8em">MAITO</tspan>
+        </text>
+      </mask>
+      <rect width="100%" height="100%" />
+    </svg>
+
+    <video id="video_target"
+      src="https://0.s3.envato.com/h264-video-previews/036eaefb-7428-47fc-85b9-fc9ce42646f7/15981383.mp4" autoplay
+      loop></video>
+  </header>
+
+  <header class="no-svg-header">
+    <h1>ESTEVAN MAITO</h1>
+  </header>
+
+
+  <div class="container">
+    <section>
+      <h1>Seja bem-vind@!</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+  </div>
+</body>
+
+</html>
